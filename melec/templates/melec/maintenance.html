@@ -1,0 +1,67 @@
+{% extends 'melec/base.html' %}
+
+{% block content %}
+
+
+    {% for e in evalMaint %}
+
+        <div class="post">
+            <div class="activiteTitre">
+
+                <p><b>ACTIVITES 4: MAINTENANCE</b></p>
+            </div>
+            <p>
+                <b>Classe:</b> {{ e.annee }}
+            </p>
+            <div class="nom">
+                <p>
+                    <b>Candidat évalué:</b> {{ e.chantier_a_evaluer.electricien|upper }}
+                </p>
+            </div>
+            <p>
+                <b>Date début du chantier:</b> {{ e.chantier_a_evaluer.date }}
+            </p>
+            <p>
+                <b>Chantier évalué:</b>{{ e.chantier_a_evaluer.travail_eleve }}
+            </p>
+            <p>
+                <b>Etat du chantier:</b>{{ e.statut }}
+            </p>
+            <p>
+                <b>Nombre d'heures effectuées:</b>{{ e.chantier_a_evaluer.Nb_heure }} heures
+            </p>
+            <div class="activite">
+                <p><b>ACTIVITE A4 - Maintenance : l'évaluation porte sur 2 tâches et 7 compétences</b></p>
+            </div>
+            <p>
+                <b>Tâche N°1 validée:</b>{{ e.tache_Maintenance.nom1 }}
+            </p>
+            <p>
+                <b>Tâche N°2 validée:</b>{{ e.tache_Maintenance.nom2 }}
+            </p>
+            <p>
+                <b>Compétence N°1 acquise:</b>{{ e.competence_Maintenance.competence1 }}
+            </p>
+            <p>
+                <b>Compétence N°2 acquise:</b>{{ e.competence_Maintenance.competence2 }}
+            </p>
+            <p>
+                <b>Attitude professionnelle N°1:</b>{{ e.attitude_Maintenance.attitude1 }}
+            </p>
+            <p>
+                <b>Attitude professionnelle N°2:</b>{{ e.attitude_Maintenance.attitude2 }}
+            </p>
+            <p>
+                <b>Appréciation:</b>{{ e.appreciation }}
+            </p>
+            <p>
+                <b>Note proposée(/20): &nbsp; {{ e.Note }}</b>
+            </p>
+            <br>
+            <br>
+        </div>
+
+    {% endfor %}
+
+
+{% endblock content %}

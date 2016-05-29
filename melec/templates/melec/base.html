@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>ms - melec GP</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/melec.css' %}">
+    <img src="http://paul-mathou.entmip.fr/html/images/bandeau_paul-mathou.png"/>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+
+
+
+            {% endblock %}
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+

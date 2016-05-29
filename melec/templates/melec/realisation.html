@@ -1,0 +1,229 @@
+{% extends 'melec/base.html' %}
+
+{% block content %}
+
+
+    {% for e in evalRea %}
+
+
+        <p><b>
+            <aT>ACTIVITES 2: REALISATION</aT>
+        </b></p>
+        <p>
+            <b>
+                <nom>Evaluation id N°{{ e.id }}</nom>
+            </b>
+        </p>
+
+        <p>
+            <b>
+                <nom>Classe: {{ e.annee }}</nom>
+            </b>
+        </p>
+
+        <p>
+            <b>
+                <nom>Candidat évalué: {{ e.chantier_a_evaluer.electricien|upper }}</nom>
+            </b>
+        </p>
+
+        <p>
+            <b>Date début du chantier:</b> {{ e.chantier_a_evaluer.date }}
+        </p>
+        <p>
+            <b>Chantier évalué:</b>{{ e.chantier_a_evaluer.travail_eleve }}
+        </p>
+        <p>
+            <b>Etat du chantier:</b>{{ e.statut }}
+        </p>
+        <p>
+            <b>Nombre d'heures effectuées:</b>{{ e.heurePass }} heures
+        </p>
+
+        <p><b>
+            <ac>ACTIVITE A2 - Réalisation : l'évaluation porte sur 6 tâches et 6 compétences</ac>
+        </b></p>
+
+
+        <p>Tâches évaluées suivant les critères: conforme - non conforme - non évaluée</p>
+        <UL>
+            <LI><b>Tâche 2-1:</b> organiser le poste de travail =
+                <c> {{ e.tache_Realisation.tache_2_1 }}</c>
+            <LI><b>Tâche 2-2:</b>implanter, poser, installer les matériels électriques =
+                <c> {{ e.tache_Realisation.tache_2_2 }}</c>
+            <LI><b>Tâche 2-3:</b>câbler, raccorder les matériels électriques =
+                <c> {{ e.tache_Realisation.tache_2_3 }}</c>
+            <LI><b>Tâche 2-4:</b>gérer les activités de son équipe =
+                <c> {{ e.tache_Realisation.tache_2_4 }} </c>
+            <LI><b>Tâche 2-5:</b>coordonner son activité par rapport à celles des autres intervenants=
+                <c> {{ e.tache_Realisation.tache_2_5 }}</c>
+            <LI><b>Tâche 2-6:</b>mener son activité de manière éco-responsable =
+                <c> {{ e.tache_Realisation.tache_2_6 }}</c>
+        </UL>
+        <hr>
+
+
+        <p>Compétences évaluées suivant les critères: ACQUISE - NON ACQUISE</p>
+        <UL TYPE="circle">
+
+            {% if e.competenceC2.C2 == 1 %}
+                <LI><b>Compétence C2:</b>Organiser l’opération dans son contexte =
+                    <ac> ACQUISE</ac>
+                    {% else %}
+                <LI><b>Compétence C2:</b>Organiser l’opération dans son contexte =
+                <d>NON ACQUISE</d>
+            {% endif %}
+
+            {% if e.competenceC4.C4 == 1 %}
+                <LI><b>Compétence C4:</b>Réaliser une installation de manière éco-responsable =
+                    <ac> ACQUISE</ac>
+                    {% else %}
+                <LI><b>Compétence C4:</b>Réaliser une installation de manière éco-responsable =
+                <d>NON ACQUISE</d>
+            {% endif %}
+
+            {% if e.competenceC5.C5 == 1 %}
+                <LI><b>Compétence C5:</b>Contrôler les grandeurs caractéristiques de l’installation =
+                    <ac> ACQUISE</ac>
+                    {% else %}
+                <LI><b>Compétence C5:</b>Contrôler les grandeurs caractéristiques de l’installation =
+                <d>NON ACQUISE</d>
+            {% endif %}
+
+            {% if e.competenceC10.C10 == 1 %}
+                <LI><b>Compétence C10:</b>Remplacer un matériel électrique =
+                    <ac> ACQUISE</ac>
+                    {% else %}
+                <LI><b>Compétence C10:</b>Remplacer un matériel électrique =
+                <d>NON ACQUISE</d>
+            {% endif %}
+
+            {% if e.competenceC11.C11 == 1 %}
+                <LI><b>Compétence C11:</b>Compléter les documents liés aux opérations =
+                    <ac> ACQUISE</ac>
+                    {% else %}
+                <LI><b>Compétence C11:</b>Compléter les documents liés aux opérations =
+                <d>NON ACQUISE</d>
+            {% endif %}
+
+            {% if e.competenceC12.C12 == 1 %}
+                <LI><b>Compétence C12:</b>Communiquer entre professionnels sur l’opération =
+                    <ac> ACQUISE</ac>
+                    {% else %}
+                <LI><b>Compétence C12:</b>Communiquer entre professionnels sur l’opération =
+                <d>NON ACQUISE</d>
+            {% endif %}
+
+        </UL>
+
+        <hr>
+
+
+        <p>AP évaluées suivant les critères: OUI:conforme - NON:non conforme </p>
+        <UL TYPE="square">
+            <LI><b>Attitude professionnelle AP1:</b>
+                <e>{{ e.attitude_Realisation.AP1 }}</e>
+            <LI><b>Attitude professionnelle AP2:</b>
+                <e>{{ e.attitude_Realisation.AP2 }}</e>
+            <LI><b>Attitude professionnelle AP3:</b>
+                <e>{{ e.attitude_Realisation.AP3 }}</e>
+            <LI><b>Attitude professionnelle AP4:</b>
+                <e>{{ e.attitude_Realisation.AP4 }}</e>
+            <LI><b>Attitude professionnelle AP5:</b>
+                <e>{{ e.attitude_Realisation.AP5 }}</e>
+        </UL>
+
+
+        <p>
+            <b>Appréciation:</b>{{ e.appreciation }}
+        </p>
+        <p>
+            <b>Note proposée(/20): &nbsp; {{ e.Note }}</b>
+        </p>
+
+
+        <br>
+        <br>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="row">id</th>
+                <th>C2</th>
+                <th>C4</th>
+                <th>C5</th>
+                <th>C10</th>
+                <th>C11</th>
+                <th>C12</th>
+            </tr>
+            </thead>
+            <tr>
+                <th scope="row">{{ e.id }}</th>
+
+                {% if e.competenceC2.C2 == 1 %}
+                    <td>
+                        <ac>ACQUISE</ac>
+                    </td>
+                {% else %}
+                    <td>
+                        <d>NON ACQUISE</d>
+                    </td>
+                {% endif %}
+
+                {% if e.competenceC4.C4 == 1 %}
+                    <td>
+                        <ac>ACQUISE</ac>
+                    </td>
+                {% else %}
+                    <td>
+                        <d>NON ACQUISE</d>
+                    </td>
+                {% endif %}
+
+                {% if e.competenceC5.C5 == 1 %}
+                    <td>
+                        <ac>ACQUISE</ac>
+                    </td>
+                {% else %}
+                    <td>
+                        <d>NON ACQUISE</d>
+                    </td>
+                {% endif %}
+
+                {% if e.competenceC10.C10 == 1 %}
+                    <td>
+                        <ac>ACQUISE</ac>
+                    </td>
+                {% else %}
+                    <td>
+                        <d>NON ACQUISE</d>
+                    </td>
+                {% endif %}
+
+                {% if e.competenceC11.C11 == 1 %}
+                    <td>
+                        <ac>ACQUISE</ac>
+                    </td>
+                {% else %}
+                    <td>
+                        <d>NON ACQUISE</d>
+                    </td>
+                {% endif %}
+
+                {% if e.competenceC12.C12 == 1 %}
+                    <td>
+                        <ac>ACQUISE</ac>
+                    </td>
+                {% else %}
+                    <td>
+                        <d>NON ACQUISE</d>
+                    </td>
+                {% endif %}
+            </tr>
+
+        </table>
+
+
+    {% endfor %}
+
+{% endblock content %}
+
